@@ -6,15 +6,15 @@ project (unit_tests
 set (CMAKE_CXX_STANDARD 11)
 
 set(sources
-    "${AVP_UT_DIRECTORY}/src/main.cpp"
-    "${AVP_UT_DIRECTORY}/src/TestMetadataUtils.cpp")
+    "${UT_DIRECTORY}/src/main.cpp"
+    "${UT_DIRECTORY}/src/maintest.cpp")
 
 set(headers
-    "${AVP_UT_DIRECTORY}/headers/TestMetadataUtils.h")
+    "${UT_DIRECTORY}/headers/maintest.h")
 
 include_directories(unit_tests
     PRIVATE
-        ${AVP_UT_DIRECTORY}/headers
+        ${UT_DIRECTORY}/headers
 )
 
 add_definitions(-DGTEST_LANGUAGE_CXX11)
@@ -24,9 +24,9 @@ include(AddGTestTest)
 enable_testing()
 add_gtest_test(${PROJECT_NAME} "${sources}" AVInterface)
 
-get_filename_component(AVPROCESSING_REPO_DIRECTORY "${AVP_UT_ROOT_DIRECTORY}" DIRECTORY)
+get_filename_component(REPO_DIRECTORY "${UT_ROOT_DIRECTORY}" DIRECTORY)
 
 include_directories(
         PRIVATE
-        ${AVPROCESSING_REPO_DIRECTORY}/include
+        ${REPO_DIRECTORY}/include
         )
