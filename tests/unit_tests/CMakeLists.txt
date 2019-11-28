@@ -22,7 +22,7 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 include(AddGTestTest)
 
 enable_testing()
-add_gtest_test(${PROJECT_NAME} "${sources}" AVInterface)
+add_gtest_test(${PROJECT_NAME} "${sources}" HomeworkProject)
 
 get_filename_component(REPO_DIRECTORY "${UT_ROOT_DIRECTORY}" DIRECTORY)
 
