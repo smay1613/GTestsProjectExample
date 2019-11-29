@@ -24,8 +24,6 @@ include(AddGTestTest)
 enable_testing()
 add_gtest_test(${PROJECT_NAME} "${sources}" HomeworkProject)
 
-get_filename_component(REPO_DIRECTORY "${UT_ROOT_DIRECTORY}" DIRECTORY)
-
 include_directories(
         PRIVATE
         ${REPO_DIRECTORY}/include

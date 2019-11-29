@@ -9,7 +9,7 @@ set(sources
 set(headers
     "src/impl.h")
 
-set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(BUILDDIR ${ROOT_DIR}/build)
 set(TEST true)
 
 add_library(HomeworkProject SHARED ${sources})
@@ -29,25 +29,8 @@ target_include_directories(HomeworkProject
         $<INSTALL_INTERFACE:include>
 )
 
-# Introduce variables:
-# * CMAKE_INSTALL_LIBDIR
-# * CMAKE_INSTALL_BINDIR
-# * CMAKE_INSTALL_INCLUDEDIR
-include(GNUInstallDirs)
-
-set(CMAKE_INSTALL_LIBDIR ${BUILD_DIR}/install)
-set(CMAKE_INSTALL_BINDIR ${BUILD_DIR}/bin)
-set(CMAKE_INSTALL_LIBDIR ${BUILD_DIR}/lib)
-
-
-install(
-    TARGETS HomeworkProject
-    EXPORT "${TARGETS_EXPORT_NAME}"
-    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-    PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILDDIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BUILDDIR}/bin)
 
 if (TEST)
     message("TESTING ENABLED")
