@@ -9,7 +9,7 @@ set(sources
 set(headers
     "src/impl.h")
 
-set(BUILDDIR ${ROOT_DIR}/build)
+set(BUILDDIR ${CMAKE_CURRENT_SOURCE_DIR}/../build)
 set(TEST true)
 
 add_library(HomeworkProject SHARED ${sources})
